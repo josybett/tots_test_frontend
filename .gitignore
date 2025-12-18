@@ -38,8 +38,8 @@ testem.log
 __screenshots__/
 /cypress/screenshots
 /cypress/videos
-.qodo/
 
 # System files
 .DS_Store
 Thumbs.db
+.qodo
