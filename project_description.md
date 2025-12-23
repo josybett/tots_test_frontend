@@ -151,7 +151,42 @@ src/
     │   └── _variables.scss
     └── i18n/
 
-8. Reglas
+8. Paleta de Colores del proyecto.
+8.1. Paleta Base y Semántica (Estados)
+a) Success (Disponible): Disponibilidad clara. Indicadores de "Libre" en calendario, toasts de éxito. #2E7D32 (Verde oscuro).
+b) Error (Ocupado): Bloqueo, error. Indicadores de "Reservado", mensajes de error al validar fechas. #C62828 (Rojo denso).
+c) Warning (Pendiente): Atención requerida. Reservas que requieren aprobación (si aplica), alertas. #F9A825 (Ámbar).
+d) Info: Informativo. Toasts de información general, enlaces de ayuda. #0277BD (Azul medio).
+
+8.2. Light Mode. 
+Diseñado para la mayoría de los entornos de oficina, limpio y con alto contraste.
+a) Primary: Teal Profundo. Botones principales (Reservar), header de la app, toolbars de Material, color activo en PrimeNG. #00796B.
+b) Primary Variant: Teal Más Oscuro. Estados hover de botones primarios, barra de estado móvil. #004D40.
+c) Accent: Naranja Quemado. Botones de acción flotante (FAB), elementos seleccionados, sliders, llamadas a la acción secundarias. #FF6F00.
+d) Background: Gris Casi Blanco. Fondo general de la aplicación (el body). #FAFAFA.
+e) Surface: Blanco Puro. Fondo de "tarjetas" (Cards), modales, el fondo de la mc-table. #FFFFFF.
+f) Text Primary: Negro Suave. Texto principal, títulos, datos en las celdas de la tabla. #212121.
+g) Text Secondary: Gris Medio. Subtítulos, descripciones cortas, labels de filtros inactivos. #757575.
+h) Border/Divider: Gris Claro. Líneas divisorias en listas y, crucialmente, los bordes de las filas y headers en mc-table para mantener la estructura. #E0E0E0.
+
+8.3. Dark Mode.
+Esencial hoy en día. No usamos negro puro, sino grises oscuros profundos para evitar fatiga visual. Los colores primarios se "desaturan" y aclaran para que no vibren contra el fondo oscuro.
+a) Primary (Dark): Teal Claro. Versión iluminada del primario para buen contraste sobre fondo oscuro. #4DB6AC.
+b) Primary Variant: Teal más suave. Estados hover en modo oscuro. #80CBC4.
+c) Accent (Dark): Naranja Pastel. Versión iluminada del acento para destacar sin encandilar. #FFB74D.
+d) Background: Gris Carbón Profundo. Fondo general de la aplicación. #121212.
+e) Surface: Gris Oscuro. Fondo de tarjetas, modales y fondo de la mc-table en dark mode. #1E1E1E.
+f) Text Primary: Blanco Hueso. Texto principal para máxima legibilidad. #E0E0E0.
+g) Text Secondary: Gris Claro. Texto secundario. #B0B0B0.
+h) Border/Divider: Gris Intermedio. Bordes sutiles para definir las celdas en mc-table y separadores. #373737.
+
+8.4.
+8.4.1. Integración con Angular Material: Esta paleta está diseñada para encajar directamente en la definición de un tema personalizado de Sass en Material (`mat.define-light-theme` y `mat.define-dark-theme`). Usen el Primary y Accent definidos arriba.
+8.4.2. Integración con MC Kit y PrimeNG: Estas librerías a veces requieren overrides de SCSS. Recomiendo encarecidamente el uso de CSS Custom Properties (Variables CSS) en el styles.scss global, mapeadas a los colores del tema de Material.
+Ejemplo: Cuando el tema sea dark, la variable --table-border-color debería cambiar de #E0E0E0 a #373737. Esto asegurará que la mc-table obligatoria responda automáticamente al cambio de tema light/dark sin reescribir estilos específicos para ella.
+Calendario Gráfico: El calendario debe usar intensivamente los colores semánticos. Los bloques de tiempo ocupados deben ser del color Error (rojo) o un gris neutro si no son relevantes, y los espacios libres del color Surface o un verde muy tenue (Success) para invitar a hacer clic.
+
+9. Reglas
 - Siempre me responderás en español.
 - Nombre de constantes, archivos, carpetas y demás código lo harás siempre en inglés.
 

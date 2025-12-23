@@ -1,4 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
 @use 'ngx-toastr/toastr';
+@use 'assets/styles/theme';
+
+/* You can add global styles to this file, and also import other style files */
 @import 'primeicons/primeicons.css';
 @import 'primeflex/primeflex.css';
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-primary-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+:root {
+  // PrimeNG Overrides
+  --p-primary-color: var(--primary-color);
+  --p-primary-color-text: var(--surface-color);
+
+  --p-text-color: var(--text-primary-color);
+  --p-text-secondary-color: var(--text-secondary-color);
+
+  --p-surface-ground: var(--background-color);
+  --p-surface-card: var(--surface-color);
+  --p-surface-border: var(--border-color);
+}

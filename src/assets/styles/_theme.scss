@@ -1,0 +1,31 @@
+:root {
+  // Semantic Colors
+  --success-color: #2E7D32;
+  --error-color: #C62828;
+  --warning-color: #F9A825;
+  --info-color: #0277BD;
+
+  // Light Mode Palette
+  --primary-color: #00796B;
+  --primary-variant-color: #004D40;
+  --accent-color: #FF6F00;
+  --background-color: #FAFAFA;
+  --surface-color: #FFFFFF;
+  --text-primary-color: #212121;
+  --text-secondary-color: #757575;
+  --border-color: #E0E0E0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    // Dark Mode Palette
+    --primary-color: #4DB6AC;
+    --primary-variant-color: #80CBC4;
+    --accent-color: #FFB74D;
+    --background-color: #121212;
+    --surface-color: #1E1E1E;
+    --text-primary-color: #E0E0E0;
+    --text-secondary-color: #B0B0B0;
+    --border-color: #373737;
+  }
+}
