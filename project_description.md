@@ -77,6 +77,7 @@ Patrones Implementados:
   - ESLint + Prettier configurados
   - Testing con Jest y Cypress
   - Principios SOLID y DRY
+  - Todos los componentes a testearse con Cypress deben tener un atributo `data-testid` y/o `data-cy` para poder acceder a ellos por medio de selectores en los tests de Cypress/JS.
 
 6. Módulo de Espacios (Mobile First)
   1. Filter component con PrimeNG y PrimeFlex:
@@ -205,6 +206,7 @@ Calendario Gráfico: El calendario debe usar intensivamente los colores semánti
 - Do NOT use the `@HostBinding` and `@HostListener` decorators. Put host bindings inside the `host` object of the `@Component` or `@Directive` decorator instead
 - Use `NgOptimizedImage` for all static images.
   - `NgOptimizedImage` does not work for inline base64 images.
+- styleClass is deprecated.
 
 ### Components
 - Keep components small and focused on a single responsibility

@@ -1,37 +1,44 @@
 <div class="logo"></div>
 <div class="mc-auth-basic-container">
-  <p-card [header]="config().title ?? 'Iniciar Sesión'" [subheader]="config().subtitle ?? 'Por favor, ingrese sus datos'">
+  <h2 id="login-title" class="visually-hidden">{{ config().title ?? 'Iniciar Sesión' }}</h2>
+  <p-card [header]="config().title ?? 'Iniciar Sesión'" [subheader]="config().subtitle ?? 'Por favor, ingrese sus datos'" role="region" aria-labelledby="login-title">
 
     <form class="" [formGroup]="group" (ngSubmit)="onClickSubmit()">
-      <p-iconField iconPosition="left" class="mb-3 w-full">
-        <p-inputIcon styleClass="pi pi-envelope" />
-        <input type="text" pInputText [placeholder]="config().emailPlaceholder ?? 'Correo electrónico'" formControlName="email" name="email" (keyup.enter)="onClickSubmit()" class="w-full" />
-      </p-iconField>
+      <div class="field mb-3 w-full">
+        <label for="email" class="visually-hidden">{{ config().emailPlaceholder ?? 'Correo electrónico' }}</label>
+        <p-iconField iconPosition="left" class="w-full">
+          <p-inputIcon styleClass="pi pi-envelope" />
+          <input type="text" pInputText id="email" [placeholder]="config().emailPlaceholder ?? 'Correo electrónico'" formControlName="email" name="email" (keyup.enter)="onClickSubmit()" class="w-full" data-cy="email-input" />
+        </p-iconField>
+      </div>
 
-      <p-iconField iconPosition="left" class="w-full">
-        <p-inputIcon styleClass="pi pi-lock" />
-        <p-password [placeholder]="config().passwordPlaceholder ?? 'Contraseña'" [feedback]="false" [toggleMask]="true" formControlName="password" name="password" (keyup.enter)="onClickSubmit()" inputStyleClass="w-full" styleClass="w-full" />
-      </p-iconField>
+      <div class="field w-full">
+        <label for="password" class="visually-hidden">{{ config().passwordPlaceholder ?? 'Contraseña' }}</label>
+        <p-iconField iconPosition="left" class="w-full">
+          <p-inputIcon styleClass="pi pi-lock" />
+          <p-password inputId="password" [placeholder]="config().passwordPlaceholder ?? 'Contraseña'" [feedback]="false" [toggleMask]="true" formControlName="password" name="password" (keyup.enter)="onClickSubmit()" inputStyleClass="w-full" styleClass="w-full" data-cy="password-input" />
+        </p-iconField>
+      </div>
 
       @if (config().resetPasswordLink != undefined) {
         <div class="more-actions">
-          <p-button [routerLink]="config().resetPasswordLink" [label]="config().resetPassword ?? 'Restablecer Contraseña'" [link]="true" />
+          <p-button [routerLink]="config().resetPasswordLink" [label]="config().resetPassword ?? 'Restablecer Contraseña'" [link]="true" data-cy="reset-password-link" />
         </div>
       }
 
       @for (message of messages(); track message; let first = $first) {
-        <p-message [severity]="message.severity" [text]="message.text" [ngClass]="{ 'mt-4': !first }" />
+        <p-message [severity]="message.severity" [text]="message.text" [ngClass]="{ 'mt-4': !first }" role="alert" />
       }
     </form>
 
     <ng-template pTemplate="footer">
       <div class="mt-1 w-full">
-        <p-button [label]="config().submitButton ?? 'Iniciar Sesión'" [loading]="isSending()" (click)="onClickSubmit()" [disabled]="group.invalid || isSending()" styleClass="w-full" />
+        <p-button [label]="config().submitButton ?? 'Iniciar Sesión'" [loading]="isSending()" (click)="onClickSubmit()" [disabled]="group.invalid || isSending()" styleClass="w-full" data-cy="submit-button" />
       </div>
 
       @if (config().registerLink != undefined) {
         <div class="more-actions-footer mt-3">
-          <p-button [routerLink]="config().registerLink" [label]="config().register ?? '¿No tiene una cuenta? Regístrese'" [link]="true" />
+          <p-button [routerLink]="config().registerLink" [label]="config().register ?? '¿No tiene una cuenta? Regístrese'" [link]="true" data-cy="register-link" />
         </div>
       }
     </ng-template>
