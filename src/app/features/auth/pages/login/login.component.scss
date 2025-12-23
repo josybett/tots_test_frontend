@@ -1,0 +1,47 @@
+.background-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  margin: 0;
+}
+
+.mc-auth-basic-container {
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+  align-items: center;
+}
+
+p-card {
+  width: 500px;
+  max-width: 500px;
+}
+
+:host ::ng-deep .p-card-body {
+  padding: 40px;
+}
+
+.more-actions {
+  text-align: right;
+  font-size: small;
+}
+
+:host ::ng-deep .more-actions {
+  .p-button {
+    padding-right: 0px;
+  }
+}
+
+.more-actions-footer {
+  text-align: center;
+  font-size: x-small;
+}
+
+@media (max-width: 768px) {
+  p-card {
+    width: 100%;
+  }
+}

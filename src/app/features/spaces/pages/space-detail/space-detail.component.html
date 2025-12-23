@@ -1,0 +1,11 @@
+@if (space) {
+  <div>
+    <h1>{{ space.name }}</h1>
+    <p><strong>Tipo:</strong> {{ space.type }}</p>
+    <p><strong>Capacidad:</strong> {{ space.capacity }} personas</p>
+    <p><strong>Descripción:</strong> {{ space.description }}</p>
+    <a routerLink="/spaces">Volver a la lista</a>
+  </div>
+} @else {
+  <p>Espacio no encontrado.</p>
+}

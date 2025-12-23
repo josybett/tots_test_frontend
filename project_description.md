@@ -151,6 +151,9 @@ src/
     │   └── _variables.scss
     └── i18n/
 
+8. Reglas
+- Siempre me responderás en español.
+- Nombre de constantes, archivos, carpetas y demás código lo harás siempre en inglés.
 
 ## Buenas prácticas (Angular v20+)
 
