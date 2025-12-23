@@ -1,47 +1,42 @@
-.background-container {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  z-index: -1;
-  margin: 0;
+  background-color: var(--background-color);
 }
 
-.mc-auth-basic-container {
-  display: flex;
-  justify-content: center;
-  min-height: 100%;
-  align-items: center;
+.logo {
+  width: 220px;
+  height: 50px;
+  background-image: url('/assets/images/logo-light.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    background-image: url('/assets/images/logo-dark.svg');
+  }
 }
 
 p-card {
-  width: 500px;
-  max-width: 500px;
+  width: 100%;
+  max-width: 450px;
 }
 
 :host ::ng-deep .p-card-body {
-  padding: 40px;
+  padding: 2.5rem;
 }
 
 .more-actions {
   text-align: right;
-  font-size: small;
-}
-
-:host ::ng-deep .more-actions {
-  .p-button {
-    padding-right: 0px;
-  }
+  font-size: 0.9rem;
 }
 
 .more-actions-footer {
   text-align: center;
-  font-size: x-small;
-}
-
-@media (max-width: 768px) {
-  p-card {
-    width: 100%;
-  }
+  margin-top: 1rem;
 }

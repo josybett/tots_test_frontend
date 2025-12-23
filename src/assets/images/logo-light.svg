@@ -1,0 +1,14 @@
+<svg width="220" height="50" viewBox="0 0 220 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g id="Logo-Icon">
+    <rect x="5" y="8" width="34" height="34" rx="8" stroke="#00796B" stroke-width="2.5"/>
+    <path d="M16 25L21 30L32 16" stroke="#FF6F00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="14" cy="18" r="3" fill="#00796B"/>
+  </g>
+
+  <g id="Logo-Text">
+    <text x="50" y="34" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#212121">Spot</text>
+    <text x="112" y="34" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="300" fill="#00796B">Now</text>
+  </g>
+  
+  <text x="52" y="46" font-family="Arial" font-size="9" font-weight="400" fill="#757575" style="letter-spacing: 1.5px;">RESERVA DE ESPACIOS</text>
+</svg>
