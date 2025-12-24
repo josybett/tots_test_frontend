@@ -1,12 +1,14 @@
 <h1>Espacios Disponibles</h1>
-<ul>
-  @for (space of spaces; track space.id) {
-    <li>
-      <a [routerLink]="['/spaces', space.id]">
-        <h2>{{ space.name }}</h2>
-        <p>Tipo: {{ space.type }}</p>
-        <p>Capacidad: {{ space.capacity }} personas</p>
-      </a>
-    </li>
-  }
-</ul>
+<div>
+  <ul>
+    @for (space of spaces; track space.id) {
+      <li>
+        <a [routerLink]="['/spaces', space.id]">
+          <h2>{{ space.name }}</h2>
+          <p>Tipo: {{ space.type }}</p>
+          <p>Capacidad: {{ space.capacity }} personas</p>
+        </a>
+      </li>
+    }
+  </ul>
+</div>

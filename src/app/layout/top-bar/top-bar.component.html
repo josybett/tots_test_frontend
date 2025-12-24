@@ -1,0 +1,52 @@
+<p-toolbar styleClass="topbar">
+  <div class="p-toolbar-group-left">
+    <div class="logo" routerLink="/" data-cy="logo"></div>
+  </div>
+
+  <div class="p-toolbar-group-right">
+    <!-- Desktop Navigation -->
+    <nav class="nav-links hidden md:flex" aria-label="Main navigation">
+      <a pButton label="Spaces" routerLink="/spaces" styleClass="p-button-text" data-cy="desktop-spaces-link"></a>
+      <a pButton label="My Bookings" routerLink="/my-bookings" styleClass="p-button-text" data-cy="desktop-bookings-link"></a>
+    </nav>
+
+    <!-- User Menu -->
+    <p-button
+      type="button"
+      icon="pi pi-user"
+      styleClass="p-button-rounded p-button-text"
+      (click)="userMenu.toggle($event)"
+      aria-label="User Menu"
+      data-cy="user-menu-button"
+    ></p-button>
+    <p-menu #userMenu [model]="userMenuItems" [popup]="true"></p-menu>
+
+    <!-- Hamburger Menu Button -->
+    <p-button
+      type="button"
+      icon="pi pi-bars"
+      styleClass="p-button-rounded p-button-text md:hidden"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle Navigation"
+      aria-controls="mobile-menu"
+      [attr.aria-expanded]="isMobileMenuVisible()"
+      data-cy="mobile-menu-button"
+    ></p-button>
+  </div>
+</p-toolbar>
+
+<!-- Mobile Menu Overlay -->
+@if (isMobileMenuVisible()) {
+  <div id="mobile-menu" class="mobile-menu-overlay md:hidden" (click)="toggleMobileMenu()">
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      @for (item of mobileMenuItems; track item) {
+        <a
+          [routerLink]="item.routerLink"
+          class="mobile-nav-link"
+          [attr.data-cy]="item['data']?.['cy']"
+          (click)="toggleMobileMenu()"
+        >{{ item.label }}</a>
+      }
+    </nav>
+  </div>
+}
