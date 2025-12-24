@@ -26,27 +26,11 @@
       type="button"
       icon="pi pi-bars"
       styleClass="p-button-rounded p-button-text md:hidden"
-      (click)="toggleMobileMenu()"
+      (click)="mobileMenu.toggle($event)"
       aria-label="Toggle Navigation"
       aria-controls="mobile-menu"
-      [attr.aria-expanded]="isMobileMenuVisible()"
       data-cy="mobile-menu-button"
     ></p-button>
+    <p-menu #mobileMenu [model]="mobileMenuItems" [popup]="true"></p-menu>
   </div>
 </p-toolbar>
-
-<!-- Mobile Menu Overlay -->
-@if (isMobileMenuVisible()) {
-  <div id="mobile-menu" class="mobile-menu-overlay md:hidden" (click)="toggleMobileMenu()">
-    <nav class="mobile-nav" aria-label="Mobile navigation" (click)="$event.stopPropagation()">
-      @for (item of mobileMenuItems; track item) {
-        <a
-          [routerLink]="item.routerLink"
-          class="mobile-nav-link"
-          [attr.data-cy]="item['data']?.['cy']"
-          (click)="toggleMobileMenu()"
-        >{{ item.label }}</a>
-      }
-    </nav>
-  </div>
-}

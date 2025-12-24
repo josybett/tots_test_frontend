@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MenuItem } from 'primeng/api';
@@ -14,8 +14,6 @@ import { MenuModule } from 'primeng/menu';
   styleUrls: ['./top-bar.component.scss'],
 })
 export class TopBarComponent {
-  isMobileMenuVisible = signal(false);
-
   userMenuItems: MenuItem[] = [
     { label: 'Profile', icon: 'pi pi-fw pi-user', data: { cy: 'profile-link' } },
     { label: 'Settings', icon: 'pi pi-fw pi-cog', data: { cy: 'settings-link' } },
@@ -27,8 +25,4 @@ export class TopBarComponent {
     { label: 'Spaces', routerLink: '/spaces', data: { cy: 'mobile-spaces-link' } },
     { label: 'My Bookings', routerLink: '/my-bookings', data: { cy: 'mobile-bookings-link' } },
   ];
-
-  toggleMobileMenu() {
-    this.isMobileMenuVisible.update(value => !value);
-  }
 }
