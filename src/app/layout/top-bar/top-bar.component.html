@@ -5,9 +5,9 @@
 
   <div class="p-toolbar-group-right">
     <!-- Desktop Navigation -->
-    <nav class="nav-links hidden md:flex" aria-label="Main navigation">
-      <a pButton label="Spaces" routerLink="/spaces" styleClass="p-button-text" data-cy="desktop-spaces-link"></a>
-      <a pButton label="My Bookings" routerLink="/my-bookings" styleClass="p-button-text" data-cy="desktop-bookings-link"></a>
+    <nav class="nav-links hidden md:flex items-center" aria-label="Main navigation">
+      <a routerLink="/spaces" class="desktop-nav-link" data-cy="desktop-spaces-link">Spaces</a>
+      <a routerLink="/my-bookings" class="desktop-nav-link" data-cy="desktop-bookings-link">My Bookings</a>
     </nav>
 
     <!-- User Menu -->
@@ -38,7 +38,7 @@
 <!-- Mobile Menu Overlay -->
 @if (isMobileMenuVisible()) {
   <div id="mobile-menu" class="mobile-menu-overlay md:hidden" (click)="toggleMobileMenu()">
-    <nav class="mobile-nav" aria-label="Mobile navigation">
+    <nav class="mobile-nav" aria-label="Mobile navigation" (click)="$event.stopPropagation()">
       @for (item of mobileMenuItems; track item) {
         <a
           [routerLink]="item.routerLink"

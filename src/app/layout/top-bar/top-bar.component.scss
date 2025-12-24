@@ -11,6 +11,12 @@
   background-color: var(--surface-card);
   border-bottom: 1px solid var(--border-color);
   padding: 0.5rem 1rem;
+
+  .p-toolbar-group-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
 }
 
 .logo {
@@ -29,16 +35,15 @@
   }
 }
 
-.nav-links {
-  a {
-    margin: 0 0.5rem;
-    color: var(--text-secondary-color);
-    font-weight: 600;
-    text-decoration: none;
+.desktop-nav-link {
+  margin: 0 0.75rem;
+  color: var(--text-secondary-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
 
-    &:hover {
-      color: var(--primary-color);
-    }
+  &:hover {
+    color: var(--primary-color);
   }
 }
 
