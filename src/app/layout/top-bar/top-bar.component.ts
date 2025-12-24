@@ -22,7 +22,7 @@ export class TopBarComponent {
   ];
 
   mobileMenuItems: MenuItem[] = [
-    { label: 'Spaces', routerLink: '/spaces', data: { cy: 'mobile-spaces-link' } },
-    { label: 'My Bookings', routerLink: '/my-bookings', data: { cy: 'mobile-bookings-link' } },
+    { label: 'Espacios', routerLink: '/spaces', data: { cy: 'mobile-spaces-link' } },
+    { label: 'Mis reservas', routerLink: '/my-bookings', data: { cy: 'mobile-bookings-link' } },
   ];
 }
