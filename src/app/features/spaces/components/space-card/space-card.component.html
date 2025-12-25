@@ -14,19 +14,19 @@
     <h3 class="text-lg font-bold mb-2">{{ space.name }}</h3>
 
     <div class="tags mb-2">
-      <p-tag [value]="'Up to ' + space.capacity + ' People'" styleClass="mr-2"></p-tag>
+      <p-tag [value]="'Hasta ' + space.capacity + ' Personas'" styleClass="mr-2"></p-tag>
       <p-tag [value]="space.type" severity="info"></p-tag>
     </div>
 
     @if (space.available) {
       <div class="availability available mb-2">
         <i class="pi pi-check-circle"></i>
-        <span>AVAILABLE</span>
+        <span>DISPONIBLE</span>
       </div>
     } @else {
       <div class="availability unavailable mb-2">
         <i class="pi pi-times-circle"></i>
-        <span>UNAVAILABLE</span>
+        <span>NO DISPONIBLE</span>
       </div>
     }
 
@@ -36,13 +36,13 @@
   <ng-template pTemplate="footer">
     <div class="footer-buttons">
       <p-button
-        label="View Details"
+        label="Ver Detalles"
         styleClass="p-button-outlined"
         [routerLink]="['/spaces', space.id]"
         [attr.data-cy]="'view-details-button-' + space.id"
       ></p-button>
       <p-button
-        label="Book Now"
+        label="Reservar"
         [attr.data-cy]="'book-now-button-' + space.id"
       ></p-button>
     </div>

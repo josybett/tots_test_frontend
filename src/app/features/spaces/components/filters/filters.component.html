@@ -1,34 +1,34 @@
 <p-card styleClass="filters-card">
   <ng-template pTemplate="title">
-    <h2 class="text-xl font-semibold">Filters</h2>
+    <h2 class="text-xl font-semibold">Filtros</h2>
   </ng-template>
   <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
     <div class="field mb-4">
-      <label for="dates" class="block font-medium mb-2">Availability Dates</label>
+      <label for="dates" class="block font-medium mb-2">Fecha de disponibilidad</label>
       <p-datepicker
         inputId="dates"
         formControlName="dates"
         selectionMode="range"
         styleClass="w-full"
-        placeholder="Select a date range"
+        placeholder="Rango de fechas"
         data-cy="dates-filter"
       ></p-datepicker>
     </div>
 
     <div class="field mb-4">
-      <label for="space-types" class="block font-medium mb-2">Space Type</label>
+      <label for="space-types" class="block font-medium mb-2">Tipo de espacio</label>
       <p-multiSelect
         inputId="space-types"
         [options]="spaceTypes"
         formControlName="spaceTypes"
-        placeholder="Select space types"
+        placeholder="Tipos"
         styleClass="w-full"
         data-cy="space-type-filter"
       ></p-multiSelect>
     </div>
 
     <div class="field mb-4">
-      <label for="capacity" class="block font-medium mb-2">Capacity</label>
+      <label for="capacity" class="block font-medium mb-2">Capacidad</label>
       <p-slider formControlName="capacity" [min]="10" [max]="200" data-cy="capacity-filter"></p-slider>
       <div class="slider-labels flex justify-between mt-2 text-sm">
         <span>10</span>
@@ -38,7 +38,7 @@
     </div>
 
     <p-button
-      label="Apply Filters"
+      label="Aplicar filtros"
       type="submit"
       styleClass="w-full"
       data-cy="apply-filters-button"
