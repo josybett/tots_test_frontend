@@ -1,5 +1,5 @@
 <div class="grid">
-  <div class="col-12 md:col-4 lg:col-3 pr-md-4">
+  <div class="col-12 md:col-4 lg:col-3 pr-md-4 sticky-filters">
     <app-filters data-cy="filters-section"></app-filters>
   </div>
   <div class="col-12 md:col-8 lg:col-9">
@@ -15,3 +15,12 @@
     </div>
   </div>
 </div>
+
+@if (showScrollTopButton()) {
+  <p-button
+    icon="pi pi-arrow-up"
+    styleClass="p-button-rounded scroll-top-button md:hidden"
+    (onClick)="scrollToTop()"
+    data-cy="scroll-top-button"
+  ></p-button>
+}

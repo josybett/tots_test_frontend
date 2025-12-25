@@ -1,3 +1,19 @@
 :host {
   display: block;
 }
+
+.sticky-filters {
+  @media (min-width: 768px) {
+    position: sticky;
+    top: 80px; /* Adjust based on top-bar height */
+    align-self: flex-start;
+    z-index: 1;
+  }
+}
+
+.scroll-top-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+}
