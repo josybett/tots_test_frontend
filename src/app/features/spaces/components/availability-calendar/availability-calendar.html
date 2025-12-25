@@ -1,12 +1,12 @@
-<div class="calendar-container">
+<div class="calendar-container" data-testid="availability-calendar">
   <h3 class="text-xl font-semibold mb-4">Availability Calendar</h3>
   <div class="table-wrapper">
     <table>
       <thead>
         <tr>
-          <th></th>
+          <th scope="col"><span class="sr-only">Time</span></th>
           @for (day of days; track day) {
-            <th>
+            <th scope="col">
               <div class="day-header">
                 <span>{{ day | date: 'EEE' }}</span>
                 <span class="text-sm">{{ day | date: 'MMM d' }}</span>
@@ -18,9 +18,9 @@
       <tbody>
         @for (time of timeSlots; track time) {
           <tr>
-            <td>{{ time }}</td>
+            <th scope="row">{{ time }}</th>
             @for (day of days; track day) {
-              <td [ngClass]="getSlotStatus(day, time).toLowerCase()">
+              <td [ngClass]="getSlotStatus(day, time).toLowerCase()" [attr.data-cy]="'slot-' + (day | date: 'yyyy-MM-dd') + '-' + time">
                 {{ getSlotStatus(day, time) }}
               </td>
             }
