@@ -1,6 +1,12 @@
+<div class="top-banner flex align-items-center p-3">
+  <button (click)="goBack()" class="back-button p-button-text p-button-rounded">
+    <i class="pi pi-arrow-left"></i>
+  </button>
+</div>
+
 @if (space) {
   <div class="grid">
-    <div class="col-12 md:col-8">
+    <div class="col-12 md:col-8 space-details-main-content">
       <app-image-gallery [images]="images"></app-image-gallery>
 
       <div class="mt-4">

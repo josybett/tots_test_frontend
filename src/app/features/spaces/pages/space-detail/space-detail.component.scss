@@ -3,3 +3,30 @@
   padding-top: 1.5rem;
   border-top: 1px solid var(--surface-border);
 }
+
+.amenitie:host {
+  display: block;
+}
+
+.top-banner {
+  background-color: var(--surface-card);
+  border-bottom: 1px solid var(--surface-border);
+
+  .back-button {
+    color: var(--text-color);
+  }
+}
+
+.space-details-main-content {
+  padding-left: 1rem; 
+}
+
+@media (max-width: 768px) {
+  .space-details-main-content {
+    padding-left: 1.5rem;
+  }
+  
+  app-booking-form {
+    padding: 0 1rem;
+  }
+}

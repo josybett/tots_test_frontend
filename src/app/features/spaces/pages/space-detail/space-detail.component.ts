@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ImageGalleryComponent } from '../../components/image-gallery/image-gallery';
 import { BookingFormComponent } from '../../components/booking-form/booking-form';
@@ -14,6 +14,7 @@ import { AvailabilityCalendarComponent } from '../../components/availability-cal
 })
 export class SpaceDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
+  private location = inject(Location);
   space: any | undefined;
 
   amenities = [
@@ -21,7 +22,7 @@ export class SpaceDetailComponent implements OnInit {
     { icon: 'pi pi-desktop', name: '4K Projector' },
     { icon: 'pi pi-video', name: 'Video Conferencing' },
     { icon: 'pi pi-tablet', name: 'Whiteboard' },
-    { icon: 'pi pi-sun', name: 'Air Conditioning' },
+    { icon: 'pi pi-snowflake', name: 'Air Conditioning' },
     { icon: 'pi pi-coffee', name: 'Coffee Machine' },
   ];
 
@@ -40,6 +41,10 @@ export class SpaceDetailComponent implements OnInit {
     { id: 3, name: 'Sala de Juntas B', type: 'Sala de Reuniones', capacity: 20, description: 'Perfecta para reuniones de equipo.' },
     { id: 4, name: 'Espacio Creativo C', type: 'Coworking', capacity: 30, description: 'Un espacio flexible para la colaboración.' },
   ];
+
+  goBack(): void {
+    this.location.back();
+  }
 
   ngOnInit(): void {
     const spaceId = this.route.snapshot.paramMap.get('id');

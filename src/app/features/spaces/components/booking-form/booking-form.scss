@@ -18,3 +18,7 @@ label {
     margin: 0.5rem 0;
   }
 }
+
+:host ::ng-deep .p-datepicker {
+  width: 100%;
+}
