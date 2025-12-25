@@ -1,0 +1,32 @@
+<div class="calendar-container">
+  <h3 class="text-xl font-semibold mb-4">Availability Calendar</h3>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          @for (day of days; track day) {
+            <th>
+              <div class="day-header">
+                <span>{{ day | date: 'EEE' }}</span>
+                <span class="text-sm">{{ day | date: 'MMM d' }}</span>
+              </div>
+            </th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (time of timeSlots; track time) {
+          <tr>
+            <td>{{ time }}</td>
+            @for (day of days; track day) {
+              <td [ngClass]="getSlotStatus(day, time).toLowerCase()">
+                {{ getSlotStatus(day, time) }}
+              </td>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

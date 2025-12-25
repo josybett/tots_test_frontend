@@ -3,6 +3,13 @@ import { LayoutComponent } from './layout/layout.component';
 
 export const routes: Routes = [
   {
+    path: 'spaces/:id',
+    loadComponent: () =>
+      import('./features/spaces/pages/space-detail/space-detail.component').then(
+        (m) => m.SpaceDetailComponent
+      ),
+  },
+  {
     path: 'auth',
     loadChildren: () =>
       import('./features/auth/auth.routes').then((m) => m.AUTH_ROUTES),

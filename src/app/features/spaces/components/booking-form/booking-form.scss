@@ -1,0 +1,20 @@
+:host ::ng-deep .booking-card {
+  background-color: var(--surface-card);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 80px; /* Adjust based on top-bar height */
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary-color);
+}
+
+.summary {
+  p {
+    margin: 0.5rem 0;
+  }
+}

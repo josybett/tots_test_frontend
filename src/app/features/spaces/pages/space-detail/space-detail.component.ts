@@ -1,16 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { ImageGalleryComponent } from '../../components/image-gallery/image-gallery';
+import { BookingFormComponent } from '../../components/booking-form/booking-form';
+import { AvailabilityCalendarComponent } from '../../components/availability-calendar/availability-calendar';
 
 @Component({
   selector: 'app-space-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, ImageGalleryComponent, BookingFormComponent, AvailabilityCalendarComponent],
   templateUrl: './space-detail.component.html',
   styleUrls: ['./space-detail.component.scss'],
 })
 export class SpaceDetailComponent implements OnInit {
-  space: { id: number; name: string; type: string; capacity: number; description: string; } | undefined;
+  private route = inject(ActivatedRoute);
+  space: any | undefined;
+
+  amenities = [
+    { icon: 'pi pi-wifi', name: 'WiFi' },
+    { icon: 'pi pi-desktop', name: '4K Projector' },
+    { icon: 'pi pi-video', name: 'Video Conferencing' },
+    { icon: 'pi pi-tablet', name: 'Whiteboard' },
+    { icon: 'pi pi-sun', name: 'Air Conditioning' },
+    { icon: 'pi pi-coffee', name: 'Coffee Machine' },
+  ];
+
+  images = [
+    'https://placehold.co/900x600/00796B/FFFFFF.png?text=SpotNow+1',
+    'https://placehold.co/900x600/FF6F00/FFFFFF.png?text=SpotNow+2',
+    'https://placehold.co/900x600/212121/FFFFFF.png?text=SpotNow+3',
+    'https://placehold.co/900x600/4DB6AC/FFFFFF.png?text=SpotNow+4',
+    'https://placehold.co/900x600/FBC02D/FFFFFF.png?text=SpotNow+5',
+  ];
 
   // Dummy data representing all spaces
   private allSpaces = [
@@ -20,12 +41,10 @@ export class SpaceDetailComponent implements OnInit {
     { id: 4, name: 'Espacio Creativo C', type: 'Coworking', capacity: 30, description: 'Un espacio flexible para la colaboración.' },
   ];
 
-  constructor(private route: ActivatedRoute) {}
-
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.space = this.allSpaces.find(s => s.id === +id);
+    const spaceId = this.route.snapshot.paramMap.get('id');
+    if (spaceId) {
+      this.space = this.allSpaces.find(s => s.id === +spaceId);
     }
   }
 }

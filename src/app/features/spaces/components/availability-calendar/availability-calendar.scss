@@ -1,0 +1,60 @@
+:host {
+  display: block;
+  margin-top: 2rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+th, td {
+  border: 1px solid var(--surface-border);
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+th {
+  background-color: var(--surface-section);
+}
+
+.day-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+}
+
+td.free {
+  background-color: var(--p-green-100);
+  color: var(--p-green-800);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: var(--p-green-200);
+  }
+}
+
+td.booked {
+  background-color: var(--surface-disabled);
+  color: var(--text-secondary-color);
+  cursor: not-allowed;
+  position: relative;
+
+  &::after {
+    content: '🔒';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+  }
+}

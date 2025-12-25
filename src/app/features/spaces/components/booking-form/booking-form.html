@@ -1,0 +1,35 @@
+<p-card styleClass="booking-card">
+  <ng-template pTemplate="title">
+    <h3 class="text-xl font-semibold">Book this Space</h3>
+  </ng-template>
+  <form [formGroup]="bookingForm" (ngSubmit)="confirmReservation()">
+    <div class="field mb-4">
+      <label for="event-name">Event Name</label>
+      <input id="event-name" pInputText formControlName="eventName" class="w-full" />
+    </div>
+
+    <div class="field mb-4">
+      <label for="date">Date</label>
+      <p-datePicker inputId="date" formControlName="date" styleClass="w-full"></p-datePicker>
+    </div>
+
+    <div class="grid formgrid">
+      <div class="col-6 field">
+        <label for="start-time">Start Time</label>
+        <p-select inputId="start-time" [options]="timeOptions" formControlName="startTime" styleClass="w-full"></p-select>
+      </div>
+      <div class="col-6 field">
+        <label for="end-time">End Time</label>
+        <p-select inputId="end-time" [options]="timeOptions" formControlName="endTime" styleClass="w-full"></p-select>
+      </div>
+    </div>
+
+    <div class="summary mt-4">
+      <p><strong>Duration:</strong> {{ duration }}</p>
+      <p><strong>Date:</strong> {{ bookingForm.get('date')?.value | date: 'longDate' }}</p>
+    </div>
+
+    <p-button label="Confirm Reservation" type="submit" styleClass="w-full mt-4"></p-button>
+  </form>
+</p-card>
+
