@@ -49,6 +49,10 @@
     color: var(--p-green-500);
   }
 
+  &.unavailable {
+    color: var(--p-red-500);
+  }
+
   i {
     margin-right: 0.5rem;
   }
