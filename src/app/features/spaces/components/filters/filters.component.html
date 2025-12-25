@@ -30,7 +30,7 @@
     <div class="field mb-4">
       <label for="capacity" class="block font-medium mb-2">Capacity</label>
       <p-slider formControlName="capacity" [min]="10" [max]="200" data-cy="capacity-filter"></p-slider>
-      <div class="flex justify-between mt-2 text-sm text-gray-600">
+      <div class="slider-labels flex justify-between mt-2 text-sm">
         <span>10</span>
         <span>{{ filterForm.get('capacity')?.value }}</span>
         <span>200</span>

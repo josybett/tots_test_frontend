@@ -10,21 +10,23 @@
     />
   </ng-template>
 
-  <h3 class="text-lg font-bold mb-2">{{ space.name }}</h3>
+  <div class="card-content">
+    <h3 class="text-lg font-bold mb-2">{{ space.name }}</h3>
 
-  <div class="tags mb-2">
-    <p-tag [value]="'Up to ' + space.capacity + ' People'" styleClass="mr-2"></p-tag>
-    <p-tag [value]="space.type" severity="info"></p-tag>
-  </div>
-
-  @if (space.available) {
-    <div class="availability available mb-2">
-      <i class="pi pi-check-circle"></i>
-      <span>AVAILABLE</span>
+    <div class="tags mb-2">
+      <p-tag [value]="'Up to ' + space.capacity + ' People'" styleClass="mr-2"></p-tag>
+      <p-tag [value]="space.type" severity="info"></p-tag>
     </div>
-  }
 
-  <p class="description text-sm mb-3">{{ space.description }}</p>
+    @if (space.available) {
+      <div class="availability available mb-2">
+        <i class="pi pi-check-circle"></i>
+        <span>AVAILABLE</span>
+      </div>
+    }
+
+    <p class="description text-sm mb-3">{{ space.description }}</p>
+  </div>
 
   <ng-template pTemplate="footer">
     <div class="flex gap-2">
