@@ -1,8 +1,10 @@
 :host {
   display: block;
+  height: 100%;
 }
 
 .space-card {
+  height: 100%;
   transition: transform 0.2s, box-shadow 0.2s;
 
   &:hover {
@@ -54,5 +56,10 @@
 
 .description {
   color: var(--text-secondary-color);
-  min-height: 40px; /* Ensures consistent card height */
+}
+
+.footer-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
 }

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FiltersComponent } from '../../components/filters/filters.component';
 import { SpaceCardComponent } from '../../components/space-card/space-card.component';
 
 @Component({
   selector: 'app-space-list',
   standalone: true,
-  imports: [CommonModule, FiltersComponent, SpaceCardComponent],
+  imports: [CommonModule, RouterModule, FiltersComponent, SpaceCardComponent],
   templateUrl: './space-list.component.html',
   styleUrls: ['./space-list.component.scss'],
 })
