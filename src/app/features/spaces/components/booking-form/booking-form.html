@@ -16,20 +16,19 @@
     <div class="grid formgrid">
       <div class="col-6 field">
         <label for="start-time">Start Time</label>
-        <p-select inputId="start-time" [options]="timeOptions" formControlName="startTime" styleClass="w-full" data-cy="start-time-select"></p-select>
+        <p-select inputId="start-time" [options]="timeOptions()" formControlName="startTime" styleClass="w-full" data-cy="start-time-select"></p-select>
       </div>
       <div class="col-6 field">
         <label for="end-time">End Time</label>
-        <p-select inputId="end-time" [options]="timeOptions" formControlName="endTime" styleClass="w-full" data-cy="end-time-select"></p-select>
+        <p-select inputId="end-time" [options]="timeOptions()" formControlName="endTime" styleClass="w-full" data-cy="end-time-select"></p-select>
       </div>
     </div>
 
     <div class="summary mt-4">
-      <p data-cy="duration-summary"><strong>Duration:</strong> {{ duration }}</p>
+      <p data-cy="duration-summary"><strong>Duration:</strong> {{ duration() }}</p>
       <p><strong>Date:</strong> {{ bookingForm.get('date')?.value | date: 'longDate' }}</p>
     </div>
 
     <p-button label="Confirm Reservation" type="submit" styleClass="w-full mt-4" data-cy="confirm-reservation-button"></p-button>
   </form>
 </p-card>
-
