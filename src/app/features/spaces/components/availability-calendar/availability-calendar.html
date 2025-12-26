@@ -5,7 +5,7 @@
       <thead>
         <tr>
           <th scope="col"><span class="sr-only">Time</span></th>
-          @for (day of days; track day) {
+          @for (day of days(); track day) {
             <th scope="col">
               <div class="day-header">
                 <span>{{ day | date: 'EEE' }}</span>
@@ -16,10 +16,10 @@
         </tr>
       </thead>
       <tbody>
-        @for (time of timeSlots; track time) {
+        @for (time of timeSlots(); track time) {
           <tr>
             <th scope="row">{{ time }}</th>
-            @for (day of days; track day) {
+            @for (day of days(); track day) {
               <td [ngClass]="getSlotStatus(day, time).toLowerCase()" [attr.data-cy]="'slot-' + (day | date: 'yyyy-MM-dd') + '-' + time">
                 {{ getSlotStatus(day, time) }}
               </td>

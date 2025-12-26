@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { getDay, format, addDays } from 'date-fns';
 
@@ -15,9 +15,9 @@ interface TimeSlot {
   styleUrls: ['./availability-calendar.scss'],
 })
 export class AvailabilityCalendarComponent implements OnInit {
-  days: Date[] = [];
-  timeSlots: string[] = [];
-  availability: { [key: string]: TimeSlot[] } = {};
+  days: WritableSignal<Date[]> = signal([]);
+  timeSlots: WritableSignal<string[]> = signal([]);
+  availability: WritableSignal<{ [key: string]: TimeSlot[] }> = signal({});
 
   ngOnInit(): void {
     this.generateDays();
@@ -27,30 +27,36 @@ export class AvailabilityCalendarComponent implements OnInit {
 
   generateDays(): void {
     const today = new Date();
+    const newDays: Date[] = [];
     for (let i = 0; i < 7; i++) {
-      this.days.push(addDays(today, i));
+      newDays.push(addDays(today, i));
     }
+    this.days.set(newDays);
   }
 
   generateTimeSlots(): void {
+    const newTimeSlots: string[] = [];
     for (let i = 8; i <= 18; i++) {
-      this.timeSlots.push(`${i}:00`);
+      newTimeSlots.push(`${i}:00`);
     }
+    this.timeSlots.set(newTimeSlots);
   }
 
   generateAvailability(): void {
-    this.days.forEach(day => {
+    const newAvailability: { [key: string]: TimeSlot[] } = {};
+    this.days().forEach(day => {
       const dayKey = format(day, 'yyyy-MM-dd');
-      this.availability[dayKey] = this.timeSlots.map(time => ({
+      newAvailability[dayKey] = this.timeSlots().map(time => ({
         time,
         status: Math.random() > 0.5 ? 'Free' : 'Booked',
       }));
     });
+    this.availability.set(newAvailability);
   }
 
   getSlotStatus(day: Date, time: string): 'Free' | 'Booked' {
     const dayKey = format(day, 'yyyy-MM-dd');
-    const daySlots = this.availability[dayKey];
+    const daySlots = this.availability()[dayKey];
     if (!daySlots) return 'Booked';
 
     const slot = daySlots.find(s => s.time === time);
