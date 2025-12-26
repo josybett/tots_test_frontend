@@ -1,24 +1,29 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { GalleriaModule } from 'primeng/galleria';
 
 @Component({
   selector: 'app-image-gallery',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [GalleriaModule],
   templateUrl: './image-gallery.html',
   styleUrls: ['./image-gallery.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ImageGalleryComponent implements OnInit {
-  @Input() images: string[] = [];
-  selectedImage: string = '';
+export class ImageGalleryComponent {
+  @Input({ required: true }) images: string[] = [];
 
-  ngOnInit(): void {
-    if (this.images.length > 0) {
-      this.selectedImage = this.images[0];
-    }
-  }
-
-  selectImage(image: string): void {
-    this.selectedImage = image;
-  }
+  responsiveOptions: any[] = [
+    {
+      breakpoint: '1024px',
+      numVisible: 5,
+    },
+    {
+      breakpoint: '768px',
+      numVisible: 3,
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1,
+    },
+  ];
 }

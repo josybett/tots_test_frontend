@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterModule, TopBarComponent],
+  imports: [RouterModule, TopBarComponent, ToastModule],
   template: `
+    <p-toast></p-toast>
     <app-top-bar></app-top-bar>
     <main class="main-content">
       <router-outlet></router-outlet>

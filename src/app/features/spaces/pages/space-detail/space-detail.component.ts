@@ -1,21 +1,22 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal, WritableSignal } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ImageGalleryComponent } from '../../components/image-gallery/image-gallery';
 import { BookingFormComponent } from '../../components/booking-form/booking-form';
+import { AccordionModule } from 'primeng/accordion';
 import { AvailabilityCalendarComponent } from '../../components/availability-calendar/availability-calendar';
 
 @Component({
   selector: 'app-space-detail',
   standalone: true,
-  imports: [CommonModule, ImageGalleryComponent, BookingFormComponent, AvailabilityCalendarComponent],
+  imports: [CommonModule, ImageGalleryComponent, BookingFormComponent, AvailabilityCalendarComponent, AccordionModule],
   templateUrl: './space-detail.component.html',
   styleUrls: ['./space-detail.component.scss'],
 })
 export class SpaceDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private location = inject(Location);
-  space: any | undefined;
+  space: WritableSignal<any | undefined> = signal(undefined);
 
   amenities = [
     { icon: 'pi pi-wifi', name: 'WiFi' },
@@ -49,7 +50,7 @@ export class SpaceDetailComponent implements OnInit {
   ngOnInit(): void {
     const spaceId = this.route.snapshot.paramMap.get('id');
     if (spaceId) {
-      this.space = this.allSpaces.find(s => s.id === +spaceId);
+      this.space.set(this.allSpaces.find(s => s.id === +spaceId));
     }
   }
 }
