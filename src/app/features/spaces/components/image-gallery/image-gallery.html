@@ -1,24 +1,20 @@
 @if (images.length > 0) {
-  <div class="gallery-container" data-testid="image-gallery">
-    <div class="main-image-container">
-      <img [ngSrc]="selectedImage" alt="Selected space image" class="main-image" width="900" height="600" priority data-cy="main-image" />
-    </div>
-    <div class="thumbnail-container">
-      @for (image of images; track image; let i = $index) {
-        <img
-          [ngSrc]="image"
-          alt="Space image thumbnail"
-          class="thumbnail"
-          [class.selected]="image === selectedImage"
-          (click)="selectImage(image)"
-          (keydown.enter)="selectImage(image)"
-          role="button"
-          tabindex="0"
-          [attr.data-cy]="'thumbnail-' + i"
-          width="150"
-          height="100"
-        />
-      }
-    </div>
-  </div>
+  <p-galleria
+    [value]="images"
+    [responsiveOptions]="responsiveOptions"
+    [numVisible]="5"
+    [circular]="true"
+    [showItemNavigators]="true"
+    [showThumbnails]="true"
+    data-testid="image-galleria"
+  >
+    <ng-template pTemplate="item" let-item>
+      <img [src]="item" style="width: 100%; display: block;" [alt]="'Space image'" />
+    </ng-template>
+    <ng-template pTemplate="thumbnail" let-item>
+      <div class="grid grid-nogutter justify-content-center">
+        <img [src]="item" style="width: 100px; display: block;" [alt]="'Space image thumbnail'" />
+      </div>
+    </ng-template>
+  </p-galleria>
 }
