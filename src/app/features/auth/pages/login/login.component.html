@@ -8,7 +8,7 @@
         <label for="email" class="visually-hidden">{{ config().emailPlaceholder ?? 'Correo electrónico' }}</label>
         <p-iconField iconPosition="left" class="w-full">
           <p-inputIcon styleClass="pi pi-envelope" />
-          <input type="text" pInputText id="email" [placeholder]="config().emailPlaceholder ?? 'Correo electrónico'" formControlName="email" name="email" (keyup.enter)="onClickSubmit()" class="w-full" data-cy="email-input" />
+          <input type="text" pInputText id="email" [placeholder]="config().emailPlaceholder ?? 'Correo electrónico'" formControlName="email" name="email" (keyup.enter)="onClickSubmit()" class="w-full" data-cy="email-input" autocomplete="email" />
         </p-iconField>
       </div>
 
@@ -16,7 +16,7 @@
         <label for="password" class="visually-hidden">{{ config().passwordPlaceholder ?? 'Contraseña' }}</label>
         <p-iconField iconPosition="left" class="w-full">
           <p-inputIcon styleClass="pi pi-lock" />
-          <p-password inputId="password" [placeholder]="config().passwordPlaceholder ?? 'Contraseña'" [feedback]="false" [toggleMask]="true" formControlName="password" name="password" (keyup.enter)="onClickSubmit()" inputStyleClass="w-full" styleClass="w-full" data-cy="password-input" />
+          <p-password inputId="password" [placeholder]="config().passwordPlaceholder ?? 'Contraseña'" [feedback]="false" [toggleMask]="true" formControlName="password" name="password" (keyup.enter)="onClickSubmit()" inputStyleClass="w-full" styleClass="w-full" data-cy="password-input" autocomplete="current-password" />
         </p-iconField>
       </div>
 
