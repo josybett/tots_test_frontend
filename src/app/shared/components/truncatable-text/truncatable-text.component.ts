@@ -1,6 +1,12 @@
-import { Component, input } from '@angular/core';
+import { Component, input, OnInit, OnDestroy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TooltipModule } from 'primeng/tooltip';
+
+export interface ResponsiveLimits {
+  sm: number;
+  md: number;
+  lg: number;
+}
 
 @Component({
   selector: 'app-truncatable-text',
@@ -38,7 +44,47 @@ import { TooltipModule } from 'primeng/tooltip';
     }
   `]
 })
-export class TruncatableTextComponent {
+export class TruncatableTextComponent implements OnInit, OnDestroy {
   text = input.required<string>();
-  charLimit = input(15); // Default character limit
+  limits = input<ResponsiveLimits>({ sm: 20, md: 30, lg: 40 });
+
+  charLimit = signal(this.limits().lg);
+
+  private queries: [string, (e: MediaQueryListEvent) => void][] = [];
+
+  ngOnInit(): void {
+    const breakpoints = {
+      sm: window.matchMedia('(max-width: 767px)'),
+      md: window.matchMedia('(min-width: 768px) and (max-width: 991px)'),
+      lg: window.matchMedia('(min-width: 992px)'),
+    };
+
+    const updateLimit = () => {
+      if (breakpoints.sm.matches) {
+        this.charLimit.set(this.limits().sm);
+      } else if (breakpoints.md.matches) {
+        this.charLimit.set(this.limits().md);
+      } else {
+        this.charLimit.set(this.limits().lg);
+      }
+    };
+
+    // Initial check
+    updateLimit();
+
+    // Listen for changes
+    Object.values(breakpoints).forEach(query => {
+      const listener = (e: MediaQueryListEvent) => {
+        if (e.matches) updateLimit();
+      };
+      query.addEventListener('change', listener);
+      this.queries.push([query.media, listener]);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.queries.forEach(([media, listener]) => {
+      window.matchMedia(media).removeEventListener('change', listener);
+    });
+  }
 }
