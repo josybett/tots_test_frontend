@@ -21,8 +21,8 @@ export class MyBookingsComponent implements OnInit {
       this.bookings.set([
         {
           id: 1,
-          spaceName: 'Sala Ejecutiva A',
-          eventName: 'Reunión Estrategias del Q4',
+          spaceName: 'Sala Ejecutiva A para reuniones de alta importancia',
+          eventName: 'Reunión de Planificación Estratégica para el Cuarto Trimestre del Año Fiscal',
           imageUrl: 'https://placehold.co/150x90/00796B/FFFFFF.png?text=SpotNow',
           date: '26 Oct, 2023',
           time: '09:00 AM - 11:00 AM',
@@ -31,8 +31,8 @@ export class MyBookingsComponent implements OnInit {
         },
         {
           id: 2,
-          spaceName: 'Gran Auditorio',
-          eventName: 'Rehearsal Lanzamiento del Producto',
+          spaceName: 'Gran Auditorio Principal del Centro de Convenciones',
+          eventName: 'Ensayo General para el Lanzamiento Global del Nuevo Producto de la Compañía',
           imageUrl: 'https://placehold.co/150x90/FF6F00/FFFFFF.png?text=SpotNow',
           date: '26 Oct, 2023',
           time: '02:00 PM - 05:00 PM',
@@ -41,34 +41,14 @@ export class MyBookingsComponent implements OnInit {
         },
         {
           id: 3,
-          spaceName: 'Gran Auditorio',
-          eventName: 'Rehearsal Lanzamiento del Producto',
-          imageUrl: 'https://placehold.co/150x90/FF6F00/FFFFFF.png?text=SpotNow',
-          date: '26 Oct, 2023',
-          time: '02:00 PM - 05:00 PM',
+          spaceName: 'Sala de Juntas B (Capacidad para 20 personas)',
+          eventName: 'Reunión de seguimiento del proyecto de desarrollo de software',
+          imageUrl: 'https://placehold.co/150x90/212121/FFFFFF.png?text=SpotNow',
+          date: '27 Oct, 2023',
+          time: '10:00 AM - 12:00 PM',
           status: 'CONFIRMADO',
           severity: 'CONFIRMED',
         },
-        {
-          id: 4,
-          spaceName: 'Sala Ejecutiva A',
-          eventName: 'Reunión Estrategias del Q4',
-          imageUrl: 'https://placehold.co/150x90/00796B/FFFFFF.png?text=SpotNow',
-          date: '26 Oct, 2023',
-          time: '09:00 AM - 11:00 AM',
-          status: 'CONFIRMADO',
-          severity: 'CONFIRMED',
-        },
-        {
-          id: 5,
-          spaceName: 'Gran Auditorio',
-          eventName: 'Rehearsal Lanzamiento del Producto',
-          imageUrl: 'https://placehold.co/150x90/FF6F00/FFFFFF.png?text=SpotNow',
-          date: '26 Oct, 2023',
-          time: '02:00 PM - 05:00 PM',
-          status: 'CONFIRMADO',
-          severity: 'CONFIRMED',
-        }
       ]);
       this.loading.set(false);
     }, 500);

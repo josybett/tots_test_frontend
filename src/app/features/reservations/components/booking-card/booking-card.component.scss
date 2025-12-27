@@ -2,6 +2,19 @@
   display: block;
 }
 
+:host ::ng-deep .p-card {
+  background-color: var(--surface-card);
+  border-radius: 12px;
+  
+  .p-card-body {
+    padding: 1rem;
+  }
+
+  .p-card-content {
+    padding: 0;
+  }
+}
+
 .booking-image {
   border-radius: 8px;
   width: 100%;
@@ -10,25 +23,25 @@
   object-fit: cover;
 }
 
-:host ::ng-deep .p-card .p-card-body {
-  padding: 1rem;
+.action-buttons {
+  p-button:first-of-type ::ng-deep .p-button {
+    color: var(--primary-color);
+  }
 }
 
-:host ::ng-deep .p-card .p-card-content {
-  padding: 0;
-}
-
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   .booking-card-content {
-    text-align: center;
-  }
+    .col-12 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
 
-  .booking-image {
-    margin-bottom: 1rem;
-  }
-
-  .text-md-right {
-    text-align: center !important;
-    margin-top: 1rem;
+    .action-buttons {
+      flex-direction: row;
+      gap: 0.5rem;
+    }
   }
 }

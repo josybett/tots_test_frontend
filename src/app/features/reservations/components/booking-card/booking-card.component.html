@@ -3,18 +3,18 @@
     <div class="col-12 md:col-2 lg:col-1">
       <img [ngSrc]="booking().imageUrl" [alt]="booking().spaceName" width="150" height="90" class="booking-image" />
     </div>
-    <div class="col-12 md:col-4 lg:col-5">
-      <h3 class="text-lg font-semibold m-0">{{ booking().spaceName }}</h3>
-      <p class="m-0 text-secondary">{{ booking().eventName }}</p>
+    <div class="col-12 md:col-4 lg:col-6">
+      <app-truncatable-text [text]="booking().spaceName" [charLimit]="25"></app-truncatable-text>
+      <app-truncatable-text [text]="booking().eventName" [charLimit]="35"></app-truncatable-text>
       <p-tag [value]="booking().status" [severity]="getSeverity(booking().severity)" styleClass="mt-2"></p-tag>
     </div>
-    <div class="col-12 md:col-3 lg:col-3 text-md-right">
+    <div class="col-12 md:col-7 lg:col-3 text-md-right">
       <p class="m-0 font-semibold">{{ booking().date }}</p>
       <p class="m-0 text-secondary">{{ booking().time }}</p>
     </div>
-    <div class="col-12 md:col-3 lg:col-3 flex justify-content-end gap-2 mt-3 md:mt-0">
-      <p-button label="EDIT" icon="pi pi-pencil" [text]="true" [raised]="true" data-cy="edit-booking-button"></p-button>
-      <p-button label="CANCEL RESERVATION" icon="pi pi-trash" severity="danger" [text]="true" [raised]="true" data-cy="cancel-booking-button"></p-button>
+    <div class="col-12 md:col-1 lg:col-2 flex justify-content-end gap-2 mt-3 md:mt-0">
+      <p-button icon="pi pi-pencil" [text]="true" [raised]="true" data-cy="edit-booking-button"></p-button>
+      <p-button icon="pi pi-trash" severity="danger" [text]="true" [raised]="true" data-cy="cancel-booking-button"></p-button>
     </div>
   </div>
 </p-card>

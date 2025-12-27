@@ -3,11 +3,12 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
+import { TruncatableTextComponent } from '../../../../shared/components/truncatable-text/truncatable-text.component';
 
 @Component({
   selector: 'app-booking-card',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, CardModule, ButtonModule, TagModule],
+  imports: [CommonModule, NgOptimizedImage, CardModule, ButtonModule, TagModule, TruncatableTextComponent],
   templateUrl: './booking-card.component.html',
   styleUrls: ['./booking-card.component.scss']
 })
