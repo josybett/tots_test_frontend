@@ -8,14 +8,16 @@ import { TooltipModule } from 'primeng/tooltip';
   imports: [CommonModule, TooltipModule],
   template: `
     <div class="truncatable-container">
-      <span class="truncated-text">{{ text() }}</span>
       @if (text().length > charLimit()) {
+        <span class="truncated-text">{{ text().slice(0, charLimit()) }}...</span>
         <i 
           class="pi pi-info-circle ml-2 info-icon"
           [pTooltip]="text()"
           tooltipPosition="top"
           data-cy="truncatable-info-icon">
         </i>
+      } @else {
+        <span class="truncated-text">{{ text() }}</span>
       }
     </div>
   `,
