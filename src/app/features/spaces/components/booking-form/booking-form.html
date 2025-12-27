@@ -1,34 +1,34 @@
 <p-card styleClass="booking-card">
   <ng-template pTemplate="title">
-    <h3 class="text-xl font-semibold">Book this Space</h3>
+    <h3 class="text-xl font-semibold">Reserva este espacio</h3>
   </ng-template>
   <form [formGroup]="bookingForm" (ngSubmit)="confirmReservation()" data-testid="booking-form">
     <div class="field mb-4">
-      <label for="event-name">Event Name</label>
+      <label for="event-name">Nombre del Evento</label>
       <input id="event-name" pInputText formControlName="eventName" class="w-full" data-cy="event-name-input" />
     </div>
 
     <div class="field mb-4">
-      <label for="date">Date</label>
+      <label for="date">Fecha</label>
       <p-datePicker inputId="date" formControlName="date" styleClass="w-full" data-cy="date-picker"></p-datePicker>
     </div>
 
     <div class="grid formgrid">
       <div class="col-6 field">
-        <label for="start-time">Start Time</label>
+        <label for="start-time">Hora de inicio</label>
         <p-select inputId="start-time" [options]="timeOptions()" formControlName="startTime" styleClass="w-full" data-cy="start-time-select"></p-select>
       </div>
       <div class="col-6 field">
-        <label for="end-time">End Time</label>
+        <label for="end-time">Hora de finalización</label>
         <p-select inputId="end-time" [options]="timeOptions()" formControlName="endTime" styleClass="w-full" data-cy="end-time-select"></p-select>
       </div>
     </div>
 
     <div class="summary mt-4">
-      <p data-cy="duration-summary"><strong>Duration:</strong> {{ duration() }}</p>
-      <p><strong>Date:</strong> {{ bookingForm.get('date')?.value | date: 'longDate' }}</p>
+      <p data-cy="duration-summary"><strong>Horario:</strong> {{ duration() }}</p>
+      <p><strong>Fecha:</strong> {{ bookingForm.get('date')?.value | date: 'longDate' }}</p>
     </div>
 
-    <p-button label="Confirm Reservation" type="submit" styleClass="w-full mt-4" data-cy="confirm-reservation-button"></p-button>
+    <p-button label="Confirmar Reserva" type="submit" styleClass="w-full mt-4" data-cy="confirm-reservation-button"></p-button>
   </form>
 </p-card>

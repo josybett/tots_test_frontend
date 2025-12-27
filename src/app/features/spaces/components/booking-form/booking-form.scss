@@ -19,6 +19,8 @@ label {
   }
 }
 
-:host ::ng-deep .p-datepicker {
-  width: 100%;
+:host ::ng-deep {
+  .p-datepicker, .p-inputtext {
+    width: 100%;
+  }
 }

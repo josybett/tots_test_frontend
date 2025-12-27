@@ -62,4 +62,13 @@ export class AvailabilityCalendarComponent implements OnInit {
     const slot = daySlots.find(s => s.time === time);
     return slot ? slot.status : 'Booked';
   }
+
+  getLabelStatus(day: Date, time: string): 'Libre' | 'Ocupado' {
+    const dayKey = format(day, 'yyyy-MM-dd');
+    const daySlots = this.availability()[dayKey];
+    if (!daySlots) return 'Ocupado';
+
+    const slot = daySlots.find(s => s.time === time);
+    return slot && slot.status === 'Free' ? 'Libre' : 'Ocupado';
+  }
 }
