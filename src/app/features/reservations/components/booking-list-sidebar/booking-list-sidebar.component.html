@@ -1,0 +1,17 @@
+<div class="sidebar-nav">
+  <nav>
+    <ul class="list-none p-0 m-0">
+      @for (item of menuItems(); track item.label) {
+        <li>
+          <p-button 
+            [label]="item.label" 
+            [icon]="item.icon" 
+            (onClick)="selectItem(item)"
+            [styleClass]="'w-full justify-content-start ' + (item.active ? 'p-button-primary' : 'p-button-text')"
+            [attr.data-cy]="'sidebar-item-' + item.label.toLowerCase().replace(' ', '-')">
+          </p-button>
+        </li>
+      }
+    </ul>
+  </nav>
+</div>

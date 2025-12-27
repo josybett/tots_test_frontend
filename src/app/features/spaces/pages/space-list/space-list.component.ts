@@ -1,28 +1,19 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FiltersComponent } from '../../components/filters/filters.component';
 import { SpaceCardComponent } from '../../components/space-card/space-card.component';
 import { ButtonModule } from 'primeng/button';
+import { ScrollTopComponent } from '../../../../shared/components/scroll-top/scroll-top.component';
 
 @Component({
   selector: 'app-space-list',
   standalone: true,
-  imports: [CommonModule, RouterModule, FiltersComponent, SpaceCardComponent, ButtonModule],
+  imports: [CommonModule, RouterModule, FiltersComponent, SpaceCardComponent, ButtonModule, ScrollTopComponent],
   templateUrl: './space-list.component.html',
   styleUrls: ['./space-list.component.scss'],
 })
 export class SpaceListComponent {
-  showScrollTopButton = signal(false);
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.showScrollTopButton.set(window.scrollY > 300);
-  }
-
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
 
   spaces = [
     {

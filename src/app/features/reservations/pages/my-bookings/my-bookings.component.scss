@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  padding: 1rem;
+}
+
+.booking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .sidebar-container {
+    position: sticky;
+    top: 80px; // Adjust based on top-bar height
+    height: calc(100vh - 80px);
+    align-self: flex-start;
+  }
+}

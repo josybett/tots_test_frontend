@@ -16,11 +16,4 @@
   </div>
 </div>
 
-@if (showScrollTopButton()) {
-  <p-button
-    icon="pi pi-arrow-up"
-    styleClass="p-button-rounded scroll-top-button md:hidden"
-    (onClick)="scrollToTop()"
-    data-cy="scroll-top-button"
-  ></p-button>
-}
+<app-scroll-top></app-scroll-top>

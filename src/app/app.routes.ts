@@ -24,6 +24,13 @@ export const routes: Routes = [
           import('./features/spaces/spaces.routes').then((m) => m.SPACES_ROUTES),
       },
       {
+        path: 'my-bookings',
+        loadChildren: () =>
+          import('./features/reservations/reservations.routes').then(
+            (m) => m.RESERVATIONS_ROUTES
+          ),
+      },
+      {
         path: '',
         redirectTo: 'spaces',
         pathMatch: 'full',
