@@ -7,8 +7,8 @@
     <!-- Desktop Navigation -->
     <nav class="nav-links hidden md:flex items-center" aria-label="Main navigation">
       @if (isAdmin) {
-        <a routerLink="/admin/spaces" class="desktop-nav-link" data-cy="desktop-admin-spaces-link">Espacios</a>
-        <a routerLink="/admin/reservations" class="desktop-nav-link" data-cy="desktop-admin-bookings-link">Reservas</a>
+        <a routerLink="/admin/spaces" class="desktop-nav-link" routerLinkActive="active-link">Espacios</a>
+        <a routerLink="/admin/bookings" class="desktop-nav-link" routerLinkActive="active-link">Reservas</a>
       } @else {
         <a routerLink="/spaces" class="desktop-nav-link" data-cy="desktop-spaces-link">Espacios</a>
         <a routerLink="/my-bookings" class="desktop-nav-link" data-cy="desktop-bookings-link">Mis reservas</a>

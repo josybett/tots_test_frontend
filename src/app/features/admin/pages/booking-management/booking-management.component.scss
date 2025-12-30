@@ -1,0 +1,125 @@
+@use '../../styles/admin-theme';
+
+.booking-management-page {
+  padding: 2rem;
+
+  .page-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-bar {
+    flex-wrap: wrap;
+
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    background-color: var(--surface-card);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .search-container {
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        padding: 0 0.5rem;
+        background-color: var(--surface-ground);
+
+        .p-input-icon-left > .p-inputtext {
+          border: none;
+          box-shadow: none;
+          background: transparent;
+        }
+      }
+
+      p-datePicker {
+        .p-inputtext {
+          width: 300px;
+        }
+      }
+
+      label {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--text-color-secondary);
+      }
+
+      
+    }
+  }
+
+  .status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.75rem;
+
+    &.status-confirmed {
+      background-color: rgba(46, 125, 50, 0.1);
+      color: #2e7d32; // Success
+    }
+
+    &.status-pending {
+      background-color: rgba(249, 168, 37, 0.1);
+      color: #f9a825; // Warning
+    }
+
+    &.status-cancelled {
+      background-color: rgba(198, 40, 40, 0.1);
+      color: #c62828; // Error
+    }
+  }
+
+  @media (max-width: 768px) {
+    .filter-bar {
+      flex-direction: column;
+      align-items: stretch;
+
+      .filter-group {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    mc-table {
+      thead {
+        display: none;
+      }
+
+      tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid var(--surface-d);
+        border-radius: 8px;
+        padding: 1rem;
+      }
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: none;
+        padding: 0.5rem 0;
+
+        &::before {
+          content: attr(data-label);
+          font-weight: 600;
+          color: var(--text-color-secondary);
+        }
+      }
+    }
+  }
+
+  .actions-cell {
+    .p-button-danger {
+      color: #c62828; // Error
+    }
+  }
+}

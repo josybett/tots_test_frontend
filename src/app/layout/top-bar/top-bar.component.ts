@@ -20,7 +20,7 @@ export class TopBarComponent {
 
   adminMenuItems: MenuItem[] = [
     { label: 'Espacios', routerLink: '/admin/spaces' },
-    { label: 'Reservas', routerLink: '/admin/reservations' },
+    { label: 'Reservas', routerLink: '/admin/bookings' },
   ];
 
   userMenuItems: MenuItem[] = [

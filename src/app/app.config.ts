@@ -3,6 +3,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { es } from './core/config/primeng-es';
 import { provideToastr } from 'ngx-toastr';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
@@ -24,7 +25,8 @@ export const appConfig: ApplicationConfig = {
     providePrimeNG({
       theme: {
         preset: Aura
-      }
+      },
+      translation: es
     }),
     { provide: LOCALE_ID, useValue: 'es' }
   ]

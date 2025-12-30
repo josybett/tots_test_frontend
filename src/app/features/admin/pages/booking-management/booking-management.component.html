@@ -1,0 +1,50 @@
+<div class="booking-management-page">
+  <h2 class="page-title">Gestionar Reservas</h2>
+
+  <div class="filter-bar">
+    <div class="filter-group">
+      <label for="search">Buscar</label>
+      <div class="search-container">
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input id="search" type="text" pInputText placeholder="Buscar reservas..." [formControl]="searchControl" />
+        </span>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label for="date-range">Rango de Fechas</label>
+      <p-datePicker id="date-range" [formControl]="dateRangeControl" selectionMode="range" placeholder="Seleccionar rango"></p-datePicker>
+    </div>
+
+    <div class="filter-group">
+      <label for="status">Estatus</label>
+      <p-select id="status" [options]="statusOptions" [formControl]="statusControl" placeholder="Todos"></p-select>
+    </div>
+
+    <div class="filter-group">
+      <label for="user">Usuario</label>
+      <p-select id="user" [options]="userOptions" [formControl]="userControl" placeholder="Todos los usuarios"></p-select>
+    </div>
+
+    <p-button label="Filtrar" icon="pi pi-filter"></p-button>
+  </div>
+
+  <mc-table [response]="response()" [columns]="columns">
+    <ng-template mcThTemplate let-column>
+      {{ column.title }}
+    </ng-template>
+    <ng-template mcTdTemplate let-item let-column="column">
+      <span [ngSwitch]="column.field" [attr.data-label]="column.title">
+        <div *ngSwitchCase="'status'" class="status-badge-container">
+          <span class="status-badge" [ngClass]="'status-' + item.status.toLowerCase()">{{ item.status }}</span>
+        </div>
+        <div *ngSwitchCase="'actions'" class="actions-cell">
+          <p-button icon="pi pi-pencil" styleClass="p-button-sm p-button-text"></p-button>
+          <p-button icon="pi pi-trash" styleClass="p-button-sm p-button-text p-button-danger"></p-button>
+        </div>
+        <span *ngSwitchDefault>{{ item[column.field] }}</span>
+      </span>
+    </ng-template>
+  </mc-table>
+</div>

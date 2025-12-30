@@ -1,12 +1,15 @@
 <div class="header">
   <h1>Gestionar Espacios</h1>
   <div class="actions">
-    <div class="search-container">
-      <span class="p-input-icon-left">
-        <i class="pi pi-search"></i>
-        <input type="text" pInputText placeholder="Buscando..." [formControl]="searchControl" class="p-inputtext" />
-      </span>
-      <p-button icon="pi pi-filter" styleClass="p-button-text p-button-secondary"></p-button>
+    <div class="filter-group">
+      <label for="search-spaces">Buscar</label>
+      <div class="search-container">
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input id="search-spaces" type="text" pInputText placeholder="Buscando..." [formControl]="searchControl" class="p-inputtext" />
+        </span>
+        <p-button icon="pi pi-filter" styleClass="p-button-text p-button-secondary"></p-button>
+      </div>
     </div>
     <p-button label="Añadir Nuevo Espacio" icon="pi pi-plus" (click)="navigateToAddSpace()"></p-button>
   </div>
@@ -17,7 +20,7 @@
     {{ column.title }}
   </ng-template>
   <ng-template mcTdTemplate let-item let-column="column">
-    <span [ngSwitch]="column.field">
+    <span [ngSwitch]="column.field" [attr.data-label]="column.title">
       <div *ngSwitchCase="'actions'">
         <p-button icon="pi pi-pencil" styleClass="p-button-sm p-button-text"></p-button>
         <p-button icon="pi pi-trash" styleClass="p-button-sm p-button-text p-button-danger"></p-button>
