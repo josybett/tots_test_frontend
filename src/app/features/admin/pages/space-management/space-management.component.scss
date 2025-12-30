@@ -21,5 +21,23 @@
     display: flex;
     gap: 1rem;
     align-items: center;
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      padding-left: 0.5rem;
+
+      .p-input-icon-left > .p-inputtext {
+        border: none;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .p-button.p-button-text {
+        color: #6c757d;
+      }
+    }
   }
 }

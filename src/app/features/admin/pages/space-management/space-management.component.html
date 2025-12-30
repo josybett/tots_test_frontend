@@ -1,10 +1,13 @@
 <div class="header">
   <h1>Gestionar Espacios</h1>
   <div class="actions">
-    <span class="p-input-icon-left">
-      <i class="pi pi-search"></i>
-      <input pInputText type="text" (input)="onFilter($event)" placeholder="Buscar..." />
-    </span>
+    <div class="search-container">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText placeholder="Buscando..." [formControl]="searchControl" class="p-inputtext" />
+      </span>
+      <p-button icon="pi pi-filter" styleClass="p-button-text p-button-secondary"></p-button>
+    </div>
     <p-button label="Añadir Nuevo Espacio" icon="pi pi-plus" (click)="navigateToAddSpace()"></p-button>
   </div>
 </div>
@@ -23,3 +26,4 @@
     </span>
   </ng-template>
 </mc-table>
+
