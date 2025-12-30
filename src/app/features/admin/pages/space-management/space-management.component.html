@@ -1,0 +1,25 @@
+<div class="header">
+  <h1>Gestionar Espacios</h1>
+  <div class="actions">
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input pInputText type="text" (input)="onFilter($event)" placeholder="Buscar..." />
+    </span>
+    <p-button label="Añadir Nuevo Espacio" icon="pi pi-plus" (click)="navigateToAddSpace()"></p-button>
+  </div>
+</div>
+
+<mc-table [response]="response" [columns]="columns">
+  <ng-template mcThTemplate let-column>
+    {{ column.title }}
+  </ng-template>
+  <ng-template mcTdTemplate let-item let-column="column">
+    <span [ngSwitch]="column.field">
+      <div *ngSwitchCase="'actions'">
+        <p-button icon="pi pi-pencil" styleClass="p-button-sm p-button-text"></p-button>
+        <p-button icon="pi pi-trash" styleClass="p-button-sm p-button-text p-button-danger"></p-button>
+      </div>
+      <span *ngSwitchDefault>{{ item[column.field] }}</span>
+    </span>
+  </ng-template>
+</mc-table>

@@ -1,0 +1,80 @@
+<div class="space-form-page">
+  <h2 class="page-title">Gestionar Espacios</h2>
+  <a routerLink="/admin/spaces" class="back-link"><i class="pi pi-arrow-left"></i> Volver a Espacios</a>
+
+  <p-card>
+    <ng-template pTemplate="title">Añadir Nuevo Espacio</ng-template>
+    <ng-template pTemplate="content">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="formgrid grid">
+          <!-- Row 1 -->
+          <div class="field col-12 md:col-6">
+            <p-floatLabel>
+              <input pInputText id="name" formControlName="name" />
+              <label for="name">Nombre del Espacio</label>
+            </p-floatLabel>
+          </div>
+          <div class="field col-12 md:col-6">
+            <p-floatLabel>
+              <p-select id="type" [options]="spaceTypes" formControlName="type"></p-select>
+              <label for="type">Tipo de Espacio</label>
+            </p-floatLabel>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="field col-12 md:col-6">
+            <p-floatLabel>
+              <p-inputNumber id="capacity" formControlName="capacity" [min]="1"></p-inputNumber>
+              <label for="capacity">Capacidad</label>
+            </p-floatLabel>
+          </div>
+          <div class="field col-12 md:col-6">
+            <p-floatLabel>
+              <textarea pInputTextarea id="description" formControlName="description" rows="3"></textarea>
+              <label for="description">Descripción</label>
+            </p-floatLabel>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="field col-12 md:col-6">
+            <label class="section-label">Fotos del Espacio</label>
+            <div class="photo-upload-placeholder">
+              <i class="pi pi-cloud-upload"></i>
+              <span>Arrastra y suelta las fotos aquí o <a href="#">explora</a></span>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6" formGroupName="amenities">
+            <label class="section-label">Comodidades</label>
+            <div class="amenities-grid">
+              <div class="amenity-item">
+                <p-checkbox formControlName="wifi" [binary]="true" inputId="wifi"></p-checkbox>
+                <label for="wifi">WiFi</label>
+              </div>
+              <div class="amenity-item">
+                <p-checkbox formControlName="projector" [binary]="true" inputId="projector"></p-checkbox>
+                <label for="projector">Proyector</label>
+              </div>
+              <div class="amenity-item">
+                <p-checkbox formControlName="videoConferencing" [binary]="true" inputId="videoConferencing"></p-checkbox>
+                <label for="videoConferencing">Videoconferencia</label>
+              </div>
+              <div class="amenity-item">
+                <p-checkbox formControlName="whiteboard" [binary]="true" inputId="whiteboard"></p-checkbox>
+                <label for="whiteboard">Pizarra</label>
+              </div>
+              <div class="amenity-item">
+                <p-checkbox formControlName="airConditioning" [binary]="true" inputId="airConditioning"></p-checkbox>
+                <label for="airConditioning">Aire Acondicionado</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <p-button label="Cancelar" styleClass="p-button-text"></p-button>
+          <p-button label="Crear Espacio" type="submit" [disabled]="form.invalid"></p-button>
+        </div>
+      </form>
+    </ng-template>
+  </p-card>
+</div>

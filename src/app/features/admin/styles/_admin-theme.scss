@@ -1,0 +1,17 @@
+:root {
+  // Light Theme
+  --admin-bg: #FAFAFA;
+  --admin-surface: #FFFFFF;
+  --admin-text-primary: #212121;
+  --admin-text-secondary: #757575;
+  --admin-border: #E0E0E0;
+}
+
+.dark-theme {
+  // Dark Theme
+  --admin-bg: #121212;
+  --admin-surface: #1E1E1E;
+  --admin-text-primary: #E0E0E0;
+  --admin-text-secondary: #B0B0B0;
+  --admin-border: #373737;
+}
