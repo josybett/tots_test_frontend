@@ -1,22 +1,22 @@
 <div class="space-form-page">
   <h2 class="page-title">Gestionar Espacios</h2>
-  <a routerLink="/admin/spaces" class="back-link"><i class="pi pi-arrow-left"></i> Volver a Espacios</a>
+  <a routerLink="/admin/spaces" class="back-link" data-cy="back-to-spaces-link"><i class="pi pi-arrow-left"></i> Volver a Espacios</a>
 
   <p-card>
     <ng-template pTemplate="title">Añadir Nuevo Espacio</ng-template>
     <ng-template pTemplate="content">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" data-cy="space-form">
         <div class="formgrid grid">
           <!-- Row 1 -->
           <div class="field col-12 md:col-6">
             <p-floatLabel>
-              <input pInputText id="name" formControlName="name" />
+              <input pInputText id="name" formControlName="name" data-cy="name-input" />
               <label for="name">Nombre del Espacio</label>
             </p-floatLabel>
           </div>
           <div class="field col-12 md:col-6">
             <p-floatLabel>
-              <p-select id="type" [options]="spaceTypes" formControlName="type"></p-select>
+              <p-select id="type" [options]="spaceTypes" formControlName="type" data-cy="type-select"></p-select>
               <label for="type">Tipo de Espacio</label>
             </p-floatLabel>
           </div>
@@ -24,13 +24,13 @@
           <!-- Row 2 -->
           <div class="field col-12 md:col-6">
             <p-floatLabel>
-              <p-inputNumber id="capacity" formControlName="capacity" [min]="1"></p-inputNumber>
+              <p-inputNumber id="capacity" formControlName="capacity" [min]="1" data-cy="capacity-input"></p-inputNumber>
               <label for="capacity">Capacidad</label>
             </p-floatLabel>
           </div>
           <div class="field col-12 md:col-6">
             <p-floatLabel>
-              <textarea pInputTextarea id="description" formControlName="description" rows="3"></textarea>
+              <textarea pInputTextarea id="description" formControlName="description" rows="3" data-cy="description-textarea"></textarea>
               <label for="description">Descripción</label>
             </p-floatLabel>
           </div>
@@ -38,7 +38,7 @@
           <!-- Row 3 -->
           <div class="field col-12 md:col-6">
             <label class="section-label">Fotos del Espacio</label>
-            <div class="photo-upload-placeholder">
+            <div class="photo-upload-placeholder" data-cy="photo-upload">
               <i class="pi pi-cloud-upload"></i>
               <span>Arrastra y suelta las fotos aquí o <a href="#">explora</a></span>
             </div>
@@ -47,23 +47,23 @@
             <label class="section-label">Comodidades</label>
             <div class="amenities-grid">
               <div class="amenity-item">
-                <p-checkbox formControlName="wifi" [binary]="true" inputId="wifi"></p-checkbox>
+                <p-checkbox formControlName="wifi" [binary]="true" inputId="wifi" data-cy="wifi-checkbox"></p-checkbox>
                 <label for="wifi">WiFi</label>
               </div>
               <div class="amenity-item">
-                <p-checkbox formControlName="projector" [binary]="true" inputId="projector"></p-checkbox>
+                <p-checkbox formControlName="projector" [binary]="true" inputId="projector" data-cy="projector-checkbox"></p-checkbox>
                 <label for="projector">Proyector</label>
               </div>
               <div class="amenity-item">
-                <p-checkbox formControlName="videoConferencing" [binary]="true" inputId="videoConferencing"></p-checkbox>
+                <p-checkbox formControlName="videoConferencing" [binary]="true" inputId="videoConferencing" data-cy="video-conferencing-checkbox"></p-checkbox>
                 <label for="videoConferencing">Videoconferencia</label>
               </div>
               <div class="amenity-item">
-                <p-checkbox formControlName="whiteboard" [binary]="true" inputId="whiteboard"></p-checkbox>
+                <p-checkbox formControlName="whiteboard" [binary]="true" inputId="whiteboard" data-cy="whiteboard-checkbox"></p-checkbox>
                 <label for="whiteboard">Pizarra</label>
               </div>
               <div class="amenity-item">
-                <p-checkbox formControlName="airConditioning" [binary]="true" inputId="airConditioning"></p-checkbox>
+                <p-checkbox formControlName="airConditioning" [binary]="true" inputId="airConditioning" data-cy="air-conditioning-checkbox"></p-checkbox>
                 <label for="airConditioning">Aire Acondicionado</label>
               </div>
             </div>
@@ -71,8 +71,8 @@
         </div>
 
         <div class="form-actions">
-          <p-button label="Cancelar" styleClass="p-button-text"></p-button>
-          <p-button label="Crear Espacio" type="submit" [disabled]="form.invalid"></p-button>
+          <p-button label="Cancelar" styleClass="p-button-text" data-cy="cancel-button"></p-button>
+          <p-button label="Crear Espacio" type="submit" [disabled]="form.invalid" data-cy="submit-button"></p-button>
         </div>
       </form>
     </ng-template>

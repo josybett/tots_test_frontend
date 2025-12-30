@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpaceForm } from './space-form';
+import { SpaceFormComponent } from './space-form.component';
 
-describe('SpaceForm', () => {
-  let component: SpaceForm;
-  let fixture: ComponentFixture<SpaceForm>;
+describe('SpaceFormComponent', () => {
+  let component: SpaceFormComponent;
+  let fixture: ComponentFixture<SpaceFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SpaceForm]
+      imports: [SpaceFormComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SpaceForm);
+    fixture = TestBed.createComponent(SpaceFormComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

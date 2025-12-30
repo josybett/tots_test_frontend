@@ -1,4 +1,4 @@
-@import 'primeflex/primeflex.scss';
+@use 'primeflex/primeflex.scss';
 
 .space-form-page {
   padding: 2rem;
@@ -122,7 +122,7 @@
   }
 
   .form-actions {
-    @include styleclass('flex justify-content-end gap-2 mt-5');
+    @include primeflex.styleclass('flex justify-content-end gap-2 mt-5');
 
     ::ng-deep .p-button.p-button-text {
       color: var(--text-color-secondary);
