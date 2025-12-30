@@ -6,8 +6,13 @@
   <div class="p-toolbar-group-right">
     <!-- Desktop Navigation -->
     <nav class="nav-links hidden md:flex items-center" aria-label="Main navigation">
-      <a routerLink="/spaces" class="desktop-nav-link" data-cy="desktop-spaces-link">Espacios</a>
-      <a routerLink="/my-bookings" class="desktop-nav-link" data-cy="desktop-bookings-link">Mis reservas</a>
+      @if (isAdmin) {
+        <a routerLink="/admin/spaces" class="desktop-nav-link" data-cy="desktop-admin-spaces-link">Espacios</a>
+        <a routerLink="/admin/reservations" class="desktop-nav-link" data-cy="desktop-admin-bookings-link">Reservas</a>
+      } @else {
+        <a routerLink="/spaces" class="desktop-nav-link" data-cy="desktop-spaces-link">Espacios</a>
+        <a routerLink="/my-bookings" class="desktop-nav-link" data-cy="desktop-bookings-link">Mis reservas</a>
+      }
     </nav>
 
     <!-- User Menu -->
@@ -31,6 +36,6 @@
       aria-controls="mobile-menu"
       data-cy="mobile-menu-button"
     ></p-button>
-    <p-menu #mobileMenu [model]="mobileMenuItems" [popup]="true"></p-menu>
+    <p-menu #mobileMenu [model]="isAdmin ? adminMenuItems : mobileMenuItems" [popup]="true"></p-menu>
   </div>
 </p-toolbar>

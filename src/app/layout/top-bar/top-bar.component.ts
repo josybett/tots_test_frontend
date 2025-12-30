@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -14,6 +15,14 @@ import { MenuModule } from 'primeng/menu';
   styleUrls: ['./top-bar.component.scss'],
 })
 export class TopBarComponent {
+  private authService = inject(AuthService);
+  isAdmin = this.authService.isAdmin;
+
+  adminMenuItems: MenuItem[] = [
+    { label: 'Espacios', routerLink: '/admin/spaces' },
+    { label: 'Reservas', routerLink: '/admin/reservations' },
+  ];
+
   userMenuItems: MenuItem[] = [
     { label: 'Profile', icon: 'pi pi-fw pi-user', data: { cy: 'profile-link' } },
     { label: 'Settings', icon: 'pi pi-fw pi-cog', data: { cy: 'settings-link' } },

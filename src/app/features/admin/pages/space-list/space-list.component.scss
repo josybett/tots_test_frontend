@@ -1,0 +1,44 @@
+.space-list-page {
+  padding: 2rem;
+
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      padding-left: 0.5rem;
+
+      .p-input-icon-left > .p-inputtext {
+        border: none;
+        box-shadow: none;
+      }
+
+      .p-button.p-button-text {
+        color: #6c757d;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .add-space-button {
+  &.p-button {
+    background-color: #10b981; // Emerald 500
+    border-color: #10b981;
+
+    &:hover {
+      background-color: #059669; // Emerald 600
+      border-color: #059669;
+    }
+  }
+}
+

@@ -1,0 +1,28 @@
+<div class="space-list-page">
+  <h1>Administrar Espacios para Eventos</h1>
+
+  <div class="card">
+    <div class="toolbar">
+      <div class="search-container">
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input type="text" pInputText placeholder="Buscando..." [formControl]="searchControl" />
+        </span>
+        <p-button icon="pi pi-filter" styleClass="p-button-text p-button-secondary"></p-button>
+      </div>
+      <p-button label="Nuevo Espacio" icon="pi pi-plus" (onClick)="onAddSpace()" styleClass="add-space-button"></p-button>
+    </div>
+
+    @if (isLoading()) {
+      <p>Cargando...</p>
+    } @else {
+      <app-admin-table 
+        [response]="spacesResponse()" 
+        [columns]="columns"
+        (onEdit)="onEdit($event)"
+        (onDelete)="onDelete($event)">
+      </app-admin-table>
+    }
+  </div>
+
+</div>
